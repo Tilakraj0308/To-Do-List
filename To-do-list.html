@@ -58,6 +58,9 @@
     </tbody>
   </table>
   <script>
+    window.addEventListener("load" , () =>{
+      localStorage.clear();
+    })
     butto = document.getElementById("add");
     butto.addEventListener("click", () => {
       tit = document.getElementById("exampleInputEmail1").value;
