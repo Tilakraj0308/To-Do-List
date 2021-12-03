@@ -34,14 +34,16 @@
         <th scope="col">Title</th>
         <th scope="col">Description</th>
         <th scope="col">Status</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody id="tbody">
-      <tr>
+      <tr id = "tr1">
         <th scope="row"></th>
         <td></td>
         <td></td>
-        <td><button type="submit" class="btn btn-primary" id = "done1" onclick="replace(this)" style="display: none;">Done</button></td>
+        <td><button type="submit" class="btn btn-primary" onclick="replace(this)" style="display: none;">Done</button></td>
+        <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , 1)" style="display: none;">Delete</button></td>
       </tr>
     </tbody>
   </table>
@@ -75,13 +77,13 @@
       str = "";
       i = 0;
       arr.forEach(element  => {
-        console.log(element)
         str += 
-        `<tr>
-        <th scope="row">${++i}</th>
+        `<tr id = "tr${++i}">
+        <th scope="row">${i}</th>
         <td>${element[0]}</td>
         <td>${element[1]}</td>
-        <td><button type="submit" class="btn btn-primary" id = "done${i}" onclick="replace(this)" >Done</button></td>
+        <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >Done</button></td>
+        <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , ${i})">Delete</button></td>
       </tr>`;
       });
       document.getElementById("tbody").innerHTML = str;
@@ -91,6 +93,13 @@
     function replace(e){
     e.innerHTML = "✔️";
   };
+  function remove(e , ind){
+    e.parentElement.parentElement.innerHTML = "";
+    str2 = localStorage.getItem('itemsJson');
+    arr2 = JSON.parse(str2);
+    arr2.splice(ind-1 , ind-1);
+    localStorage.setItem('itemsJson', JSON.stringify(arr2));
+  }
   </script>
 </body>
 
