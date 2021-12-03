@@ -40,17 +40,24 @@
     </tbody>
   </table>
   <script>
-    // window.addEventListener("load" , () =>{
-    //   localStorage.clear();
-    // })
+    // var t = document.getElementById("exampleInputEmail1");
+    // var f = document.getElementById("exampleInputPassword1");
+    form = document.getElementsByClassName("form-control");
+    function form_clear (){
+      form[0].value = "";
+      form[1].value = "";
+    }
     document.getElementById("clearAll").addEventListener("click" , ()=>{
       localStorage.clear();
       document.getElementById("tbody").innerHTML = "";
-    })
+      form_clear();
+    });
     butto = document.getElementById("add");
     butto.addEventListener("click", () => {
-      tit = document.getElementById("exampleInputEmail1").value;
-      des = document.getElementById("exampleInputPassword1").value;
+      // tit = document.getElementById("exampleInputEmail1").value;
+      // des = document.getElementById("exampleInputPassword1").value;
+      tit = form[0].value;
+      des = form[1].value;
       if (localStorage.getItem('itemsJson') == null) {
         arr = [];
         arr.push([tit, des]);
@@ -76,6 +83,7 @@
       </tr>`;
       });
       document.getElementById("tbody").innerHTML = str;
+      form_clear();
     });
 
   </script>
