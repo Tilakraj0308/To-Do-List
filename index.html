@@ -37,11 +37,16 @@
       </tr>
     </thead>
     <tbody id="tbody">
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td><button type="submit" class="btn btn-primary" id = "done1" onclick="replace(this)" style="display: none;">Done</button></td>
+      </tr>
     </tbody>
   </table>
   <script>
-    // var t = document.getElementById("exampleInputEmail1");
-    // var f = document.getElementById("exampleInputPassword1");
+    let k = 0;
     form = document.getElementsByClassName("form-control");
     function form_clear (){
       form[0].value = "";
@@ -54,8 +59,6 @@
     });
     butto = document.getElementById("add");
     butto.addEventListener("click", () => {
-      // tit = document.getElementById("exampleInputEmail1").value;
-      // des = document.getElementById("exampleInputPassword1").value;
       tit = form[0].value;
       des = form[1].value;
       if (localStorage.getItem('itemsJson') == null) {
@@ -70,22 +73,24 @@
         localStorage.setItem('itemsJson', JSON.stringify(arr));
       }
       str = "";
-      i = 1;
+      i = 0;
       arr.forEach(element  => {
-        // let [index , value] = element;
         console.log(element)
         str += 
         `<tr>
-        <th scope="row">${i++}</th>
+        <th scope="row">${++i}</th>
         <td>${element[0]}</td>
         <td>${element[1]}</td>
-        <td><button type="submit" class="btn btn-primary">Done</button></td>
+        <td><button type="submit" class="btn btn-primary" id = "done${i}" onclick="replace(this)" >Done</button></td>
       </tr>`;
       });
       document.getElementById("tbody").innerHTML = str;
       form_clear();
+      k = i;
     });
-
+    function replace(e){
+    e.innerHTML = "✔️";
+  };
   </script>
 </body>
 
