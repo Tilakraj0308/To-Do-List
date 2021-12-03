@@ -26,6 +26,7 @@
           </textarea>
     </div>
     <button type="submit" class="btn btn-primary" id="add">Add</button>
+    <button type = "Clear Previous" class="btn btn-primary" id="clearAll">Clear All</button>
   </div>
   <table class="table">
     <thead>
@@ -42,8 +43,8 @@
         <td></td>
         <td></td>
         <td><button type="submit" class="btn btn-primary"></button></td>
-      </tr> -->
-      <!-- <tr>
+      </tr>
+      <tr>
         <th scope="row"></th>
         <td>Hello</td>
         <td></td>
@@ -58,8 +59,12 @@
     </tbody>
   </table>
   <script>
-    window.addEventListener("load" , () =>{
+    // window.addEventListener("load" , () =>{
+    //   localStorage.clear();
+    // })
+    document.getElementById("clearAll").addEventListener("click" , ()=>{
       localStorage.clear();
+      document.getElementById("tbody").innerHTML = "";
     })
     butto = document.getElementById("add");
     butto.addEventListener("click", () => {
