@@ -49,4 +49,17 @@ str2 = localStorage.getItem('itemsJson');
 arr2 = JSON.parse(str2);
 arr2.splice(ind-1 , 1);
 localStorage.setItem('itemsJson', JSON.stringify(arr2));
+str = "";
+  i = 0;
+  arr2.forEach(element  => {
+    str += 
+    `<tr id = "tr${++i}">
+    <th scope="row">${i}</th>
+    <td>${element[0]}</td>
+    <td>${element[1]}</td>
+    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >Done</button></td>
+    <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , ${i})">Delete</button></td>
+  </tr>`;
+  });
+  document.getElementById("tbody").innerHTML = str;
 }
