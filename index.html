@@ -25,7 +25,7 @@
       <textarea class="form-control" id="exampleInputPassword1" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" id="add">Add</button>
-    <button type = "Clear Previous" class="btn btn-primary" id="clearAll">Clear All</button>
+    <button type="Clear Previous" class="btn btn-primary" id="clearAll">Clear All</button>
   </div>
   <table class="table">
     <thead>
@@ -38,12 +38,14 @@
       </tr>
     </thead>
     <tbody id="tbody">
-      <tr id = "tr1">
+      <tr id="tr1">
         <th scope="row"></th>
         <td></td>
         <td></td>
-        <td><button type="submit" class="btn btn-primary" onclick="replace(this)" style="display: none;">Done</button></td>
-        <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , 1)" style="display: none;">Delete</button></td>
+        <td><button type="submit" class="btn btn-primary" onclick="replace(this)" style="display: none;">Done</button>
+        </td>
+        <td><button type="submit" class="btn btn-primary" id="delete" onclick="remove(this , 1)"
+            style="display: none;">Delete</button></td>
       </tr>
     </tbody>
   </table>

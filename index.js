@@ -47,6 +47,6 @@ function remove(e , ind){
 e.parentElement.parentElement.innerHTML = "";
 str2 = localStorage.getItem('itemsJson');
 arr2 = JSON.parse(str2);
-arr2.splice(ind-1 , ind-1);
+arr2.splice(ind-1 , 1);
 localStorage.setItem('itemsJson', JSON.stringify(arr2));
 }
