@@ -37,6 +37,16 @@ You can add your work with description.
 - When you add new task, it keeps track of previous ones until deleted.
 - You can clear your local memory using clearall.
 
+##  📈 Improvements welcomed
+
+-Add better UI.
+-Add an alarm as the reminder of the work.
+-Maintain the Done marked task until deleted.
+-Should not add empty task.
+-Some sort of alert when task added or done.
+-Upgrade to PWA.
+
+
 ## ‎‍💻 Author
 
 - [@Tilakraj0308](https://github.com/Tilakraj0308)
