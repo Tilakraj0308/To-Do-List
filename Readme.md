@@ -39,12 +39,12 @@ You can add your work with description.
 
 ##  📈 Improvements welcomed
 
--Add better UI.
--Add an alarm as the reminder of the work.
--Maintain the Done marked task until deleted.
--Should not add empty task.
--Some sort of alert when task added or done.
--Upgrade to PWA.
+- Add better UI.
+- Add an alarm as the reminder of the work.
+- Maintain the Done marked task until deleted.
+- Should not add empty task.
+- Some sort of alert when task added or done.
+- Upgrade to PWA.
 
 
 ## ‎‍💻 Author
