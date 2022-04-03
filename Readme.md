@@ -56,7 +56,7 @@ You can add your work with description.
 If you want to say thank you and/or support the active development of To-Do-List:
 
 1. Add a GitHub Star to the project.
-2. Follow [Tilak](https://github.com/Tilak0380)
+2. Follow [Tilak Raj](https://github.com/Tilakraj0380)
 
 <!-- ## 🧾 License
 
