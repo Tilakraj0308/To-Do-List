@@ -13,7 +13,14 @@ butto = document.getElementById("add");
 butto.addEventListener("click", () => {
   tit = form[0].value;
   des = form[1].value;
-  if (localStorage.getItem('itemsJson') == null) {
+  
+  if (form[0].value == "")
+  {
+    alert("Title can't be null. Please enter a title")
+    return;
+  }
+  
+  if (localStorage.getItem('itemsJson') == null && form[0].value !== "") {
     arr = [];
     arr.push([tit, des]);
     localStorage.setItem('itemsJson', JSON.stringify(arr));
