@@ -13,22 +13,21 @@ butto = document.getElementById("add");
 butto.addEventListener("click", () => {
   tit = form[0].value;
   des = form[1].value;
-  
+  let status = "done";
   if (form[0].value == "")
   {
     alert("Title can't be null. Please enter a title")
     return;
   }
-  
   if (localStorage.getItem('itemsJson') == null && form[0].value !== "") {
     arr = [];
-    arr.push([tit, des]);
+    arr.push([tit, des, status]);
     localStorage.setItem('itemsJson', JSON.stringify(arr));
   }
   else {
     str = localStorage.getItem('itemsJson');
     arr = JSON.parse(str);
-    arr.push([tit, des]);
+    arr.push([tit, des, status]);
     localStorage.setItem('itemsJson', JSON.stringify(arr));
   }
   str = "";
@@ -39,7 +38,7 @@ butto.addEventListener("click", () => {
     <th scope="row">${i}</th>
     <td>${element[0]}</td>
     <td>${element[1]}</td>
-    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >Done</button></td>
+    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >${element[2]}</button></td>
     <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , ${i})">Delete</button></td>
   </tr>`;
   });
@@ -49,6 +48,10 @@ butto.addEventListener("click", () => {
 });
 function replace(e){
 e.innerHTML = "✔️";
+let array = JSON.parse(localStorage.getItem('itemsJson'));
+let index = e.parentElement.parentElement.firstChild.nextSibling.textContent;
+array[index-1][2] = "✔️";
+localStorage.setItem('itemsJson', JSON.stringify(array));
 };
 function remove(e , ind){
 e.parentElement.parentElement.innerHTML = "";
@@ -64,7 +67,7 @@ str = "";
     <th scope="row">${i}</th>
     <td>${element[0]}</td>
     <td>${element[1]}</td>
-    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >Done</button></td>
+    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >${element[2]}</button></td>
     <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , ${i})">Delete</button></td>
   </tr>`;
   });
