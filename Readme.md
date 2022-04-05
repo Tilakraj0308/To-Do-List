@@ -46,6 +46,10 @@ You can add your work with description.
 - Some sort of alert when task added or done.
 - Upgrade to PWA.
 
+## 📝 Note
+- Before creating a new issue, please check if it has been already solved.
+- You can check them in the closed issues.
+
 
 ## ‎‍💻 Author
 
