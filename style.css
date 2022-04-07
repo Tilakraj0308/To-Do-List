@@ -1,0 +1,33 @@
+.wrapper {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 200px;
+  margin-right: 10px;
+  margin: 10px;
+  transition: all 0.5s ease;
+  float: right;
+}
+.v-line {
+  border: 2px solid black;
+  border-left: 6px solid rgb(55, 40, 40);
+}
+.noti {
+  padding-left: 10px;
+  font-size: 24px;
+  font-weight: 400;
+}
+.tit {
+  font-weight: 600;
+}
+.add {
+  background-color: green;
+}
+.comp {
+  background-color: orange;
+}
+#addNoti {
+  visibility: hidden;
+}
+#compNoti {
+  visibility: hidden;
+}

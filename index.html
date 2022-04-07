@@ -1,57 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">  
+    <title>To-do-list</title>
+  </head>
 
-  <title>To-do-list</title>
-</head>
-
-<body>
-  <h1 style="margin: 0 0 -3vw 35vw;">TO-DO-LIST!!</h1>
-  <div style="width: 60vw; margin: 5vh 15vw;">
-    <div class="mb-3">
-      <label for="name" class="form-label">Title</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <body>
+    <div id="addNoti" class="wrapper add">
+        <div class="v-line add" id="addd">
+          <p class="noti">Your task is added</p>
+        </div>
     </div>
-    <div class="mb-3">
-      <label for="Description" class="form-label">Description</label>
-      <textarea class="form-control" id="exampleInputPassword1" rows="3"></textarea>
+      <div id="compNoti" class="wrapper comp">
+        <div class="v-line comp" id="comp">
+          <p class="noti">You have completed the task</p>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="add">Add</button>
-    <button type="Clear Previous" class="btn btn-primary" id="clearAll">Clear All</button>
-  </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Description</th>
-        <th scope="col">Status</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody id="tbody">
-      <tr id="tr1">
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td><button type="submit" class="btn btn-primary" onclick="replace(this)" style="display: none;">Done</button>
-        </td>
-        <td><button type="submit" class="btn btn-primary" id="delete" onclick="remove(this , 1)"
-            style="display: none;">Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- <script>
+    <h1 style="margin: 0 0 -3vw 35vw">TO-DO-LIST!!</h1>
+    <div style="width: 60vw; margin: 5vh 15vw">
+      <div class="mb-3">
+        <label for="name" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="exampleInputPassword1"
+          rows="3"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="add">Add</button>
+      <button type="Clear Previous" class="btn btn-primary" id="clearAll">
+        Clear All
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr id="tr1">
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="replace(this)"
+              style="display: none"
+            >
+              Done
+            </button>
+          </td>
+          <td>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="delete"
+              onclick="remove(this , 1)"
+              style="display: none"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <script>
   </script> -->
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>
