@@ -1,75 +1,80 @@
-let k = 0;
-form = document.getElementsByClassName("form-control");
-function form_clear (){
-  form[0].value = "";
-  form[1].value = "";
+let totalInsertions = []
+
+//Clear all button
+$("#clearAll").on("click", () => {
+  $("tbody").html("")
+  form_clear()
+});
+// Clears the input areas
+function form_clear() {
+  $("#title").val("")
+  $("#desc").val("")
 }
-document.getElementById("clearAll").addEventListener("click" , ()=>{
-  localStorage.clear();
-  document.getElementById("tbody").innerHTML = "";
-  form_clear();
-});
-butto = document.getElementById("add");
-butto.addEventListener("click", () => {
-  tit = form[0].value;
-  des = form[1].value;
-  let status = "done";
-  if (form[0].value == "")
-  {
+//Adds a new row if it's not null
+$("#add").on("click", (e) => {
+  e.preventDefault()
+  title = $("#title").val()
+  desc = $("#desc").val()
+  let innerStr = ""
+  if (title === "") {
     alert("Title can't be null. Please enter a title")
-    return;
+    return
   }
-  if (localStorage.getItem('itemsJson') == null && form[0].value !== "") {
-    arr = [];
-    arr.push([tit, des, status]);
-    localStorage.setItem('itemsJson', JSON.stringify(arr));
+  //Creates a json object in order to save the input
+  currentInsertion = {
+    curTitle: title,
+    curDesc: desc,
+    status: "done"
   }
-  else {
-    str = localStorage.getItem('itemsJson');
-    arr = JSON.parse(str);
-    arr.push([tit, des, status]);
-    localStorage.setItem('itemsJson', JSON.stringify(arr));
-  }
-  str = "";
-  i = 0;
-  arr.forEach(element  => {
-    str += 
-    `<tr id = "tr${++i}">
-    <th scope="row">${i}</th>
-    <td>${element[0]}</td>
-    <td>${element[1]}</td>
-    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >${element[2]}</button></td>
-    <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , ${i})">Delete</button></td>
-  </tr>`;
+  totalInsertions.push(currentInsertion)
+  $("tbody").fadeOut(400, () => {
+    let i = 0
+  totalInsertions.forEach(element => {
+    innerStr +=
+      `<tr id = "tr${i++}">
+     <th scope="row">${i}</th>
+     <td>${element.curTitle}</td>
+     <td>${element.curDesc}</td>
+     <td><button type="submit" class="btn btn-primary replace">${element.status}</button></td>
+     <td><button type="submit" class="btn btn-primary delete">Delete</button></td>
+     </tr>`
   });
-  document.getElementById("tbody").innerHTML = str;
-  form_clear();
-  k = i;
+  $("tbody").html(innerStr)
+  $("tbody").fadeIn(400)
+  })
 });
-function replace(e){
-e.innerHTML = "✔️";
-let array = JSON.parse(localStorage.getItem('itemsJson'));
-let index = e.parentElement.parentElement.firstChild.nextSibling.textContent;
-array[index-1][2] = "✔️";
-localStorage.setItem('itemsJson', JSON.stringify(array));
-};
-function remove(e , ind){
-e.parentElement.parentElement.innerHTML = "";
-str2 = localStorage.getItem('itemsJson');
-arr2 = JSON.parse(str2);
-arr2.splice(ind-1 , 1);
-localStorage.setItem('itemsJson', JSON.stringify(arr2));
-str = "";
-  i = 0;
-  arr2.forEach(element  => {
-    str += 
-    `<tr id = "tr${++i}">
-    <th scope="row">${i}</th>
-    <td>${element[0]}</td>
-    <td>${element[1]}</td>
-    <td><button type="submit" class="btn btn-primary" onclick="replace(this)" >${element[2]}</button></td>
-    <td><button type="submit" class="btn btn-primary" id = "delete" onclick="remove(this , ${i})">Delete</button></td>
-  </tr>`;
-  });
-  document.getElementById("tbody").innerHTML = str;
+
+$(document).on("click", ".replace", (e) => {
+  rowId = getCurrentRow(e)
+  totalInsertions[rowId].status = "✔️"
+  $(e.currentTarget).html("✔️")
+});
+
+$(document).on("click", ".delete", (e) => {
+  e.preventDefault()
+  rowId = getCurrentRow(e)
+  totalInsertions.splice(rowId, 1)
+  let i = 0
+  let innerStr = ""
+  // Because splice does not work on splice (1, 1) deletes the central element
+  $("tbody").fadeOut(400, () => {
+    totalInsertions.forEach(element => {
+      innerStr +=
+        `<tr id = "tr${i++}">
+       <th scope="row">${i}</th>
+       <td>${element.curTitle}</td>
+       <td>${element.curDesc}</td>
+       <td><button type="submit" class="btn btn-primary replace">${element.status}</button></td>
+       <td><button type="submit" class="btn btn-primary delete">Delete</button></td>
+       </tr>`
+    });
+    $("tbody").html(innerStr)
+    $("tbody").fadeIn(400)
+  })
+});
+
+function getCurrentRow(event) {
+  currRow = $(event.currentTarget).parent().parent()
+  rowId = $(currRow).attr("id")
+  return rowId.replace(/[^0-9]/g, "")
 }

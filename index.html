@@ -16,16 +16,18 @@
 <body>
   <h1 style="margin: 0 0 -3vw 35vw;">TO-DO-LIST!!</h1>
   <div style="width: 60vw; margin: 5vh 15vw;">
-    <div class="mb-3">
-      <label for="name" class="form-label">Title</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-      <label for="Description" class="form-label">Description</label>
-      <textarea class="form-control" id="exampleInputPassword1" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" id="add">Add</button>
-    <button type="Clear Previous" class="btn btn-primary" id="clearAll">Clear All</button>
+    <form method="get">
+      <div class="mb-3">
+        <label for="name" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <textarea class="form-control" id="desc" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="add">Add</button>
+      <button type="Clear Previous" class="btn btn-primary" id="clearAll">Clear All</button>
+    </form>
   </div>
   <table class="table">
     <thead>
@@ -42,15 +44,15 @@
         <th scope="row"></th>
         <td></td>
         <td></td>
-        <td><button type="submit" class="btn btn-primary" onclick="replace(this)" style="display: none;">Done</button>
+        <td><button type="submit" class="btn btn-primary replace" style="display: none;">Done</button>
         </td>
-        <td><button type="submit" class="btn btn-primary" id="delete" onclick="remove(this , 1)"
-            style="display: none;">Delete</button></td>
+        <td><button type="submit" class="btn btn-primary delete" style="display: none;">Delete</button></td>
       </tr>
     </tbody>
   </table>
   <!-- <script>
   </script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="index.js"></script>
 </body>
 
