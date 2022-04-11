@@ -35,8 +35,8 @@ $("#add").on("click", (e) => {
      <th scope="row">${i}</th>
      <td>${element.curTitle}</td>
      <td>${element.curDesc}</td>
-     <td><button type="submit" class="btn btn-primary replace">${element.status}</button></td>
-     <td><button type="submit" class="btn btn-primary delete">Delete</button></td>
+     <td><button type="submit" class="btn btn-success btn-sm replace">${element.status}</button></td>
+     <td><button type="submit" class="btn btn-danger btn-sm delete">Delete</button></td>
      </tr>`
   });
   $("tbody").html(innerStr)
@@ -64,8 +64,8 @@ $(document).on("click", ".delete", (e) => {
        <th scope="row">${i}</th>
        <td>${element.curTitle}</td>
        <td>${element.curDesc}</td>
-       <td><button type="submit" class="btn btn-primary replace">${element.status}</button></td>
-       <td><button type="submit" class="btn btn-primary delete">Delete</button></td>
+       <td><button type="submit" class="btn btn-success btn-sm replace">${element.status}</button></td>
+       <td><button type="submit" class="btn btn-danger btn-sm delete">Delete</button></td>
        </tr>`
     });
     $("tbody").html(innerStr)
