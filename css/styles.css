@@ -31,3 +31,8 @@ h2 {
 .btn {
   margin: 10px;
 }
+
+form div {
+  width: 100%;
+  max-width: 620px;
+}
