@@ -18,7 +18,7 @@ $("#add").on("click", (e) => {
   title = $("#title").val();
   desc = $("#desc").val();
   let innerStr = "";
-  if (title === "") {
+  if (title.trim() === "") {
     alert("Title can't be null. Please enter a title");
     return;
   }
