@@ -6,7 +6,7 @@
 <h1 align="center">To-Do-List</h1>
 
 <div align="center">
-Another awesome project to make the world a better place.
+  Hit your daily tasks with accuracy ! 
 </div>
 
 <br />
